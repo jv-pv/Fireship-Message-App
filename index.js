@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://playground-4d045-default-rtdb.firebaseio.com/"
@@ -28,11 +28,15 @@ publishBtn.addEventListener('click', () => {
         endorsementText: textAreaInputValue,
         endorsementFrom: inputFromValue,
         endorsementTo: inputToValue,
-        endorsementLikes: ``
+        endorsementLikes: 0,
+        isLiked: false
     }
 
-    push(endorsementsDB, endorsementObj)
-    clearInputFields()
+    if (textAreaInputValue === "" || inputFromValue === "" || inputToValue === "") {
+        return;
+    } 
+        push(endorsementsDB, endorsementObj)
+        clearInputFields()
 })
 
 onValue(endorsementsDB, (snapshot) => {
@@ -52,26 +56,32 @@ function appendListItemToHtml(endorsements) {
 
     let endorsementId = endorsements[0]
     let endorsementObj = endorsements[1]
+    let exactLocationOfEndorsements = ref(database, `Endorsements/${endorsementId}`)
 
-    console.log(endorsementId)
+    listEl.addEventListener('click', (e) => {
+        if (e.target.dataset.like) {
+            endorsementObj.isLiked ? endorsementObj.endorsementLikes-- : endorsementObj.endorsementLikes++ ;
+            endorsementObj.isLiked = !endorsementObj.isLiked
+            update(exactLocationOfEndorsements, {endorsementLikes: endorsementObj.endorsementLikes, isLiked: endorsementObj.isLiked})
+        }
+    })
 
     listEl.addEventListener('dblclick', () => {
-        let exactLocationOfEndorsements = ref(database, `Endorsements/${endorsementId}`)
         remove(exactLocationOfEndorsements)
     })
+    
     const {endorsementText, endorsementFrom, endorsementTo, endorsementLikes} = endorsementObj
-
     listEl.innerHTML = `
         <div class="endorsement-details">
             <h3 class="endorsement-to">${endorsementTo}</h3>
             <p class="endorsement-text">${endorsementText}</p>
             <h3 class="endorsement-from">${endorsementFrom}</h3>
             <span class="endorsement-likes">
-                <i class="fa-solid fa-heart"></i>
+                <i class="fa-solid fa-heart" id="like-btn" data-like="${endorsementId}"></i>
                 <p>${endorsementLikes}</p>
             </span>
         </div>`
-        
+    
     endorsementUl.append(listEl)
 }
 
