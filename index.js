@@ -75,9 +75,9 @@ function appendListItemToHtml(endorsements) {
     const {endorsementText, endorsementFrom, endorsementTo, endorsementLikes} = endorsementObj
     listEl.innerHTML = `
         <div class="endorsement-details">
-            <h3 class="endorsement-to">${endorsementTo}</h3>
+            <h3 class="endorsement-to">To ${endorsementTo}</h3>
             <p class="endorsement-text">${endorsementText}</p>
-            <h3 class="endorsement-from">${endorsementFrom}</h3>
+            <h3 class="endorsement-from">From ${endorsementFrom}</h3>
             <span class="endorsement-likes">
                 <i class="fa-solid fa-heart ${likedClass}" id="like-btn" data-like="${endorsementId}"></i>
                 <p>${endorsementLikes}</p>
