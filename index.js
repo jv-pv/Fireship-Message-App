@@ -66,8 +66,8 @@ function appendListItemToHtml(endorsements) {
         }
     })
 
-    listEl.addEventListener('dblclick', () => {
-        remove(exactLocationOfEndorsements)
+        listEl.addEventListener('dblclick', (e) => {
+            !e.target.dataset.like ? remove(exactLocationOfEndorsements) : null;
     })
     
     const {endorsementText, endorsementFrom, endorsementTo, endorsementLikes} = endorsementObj
