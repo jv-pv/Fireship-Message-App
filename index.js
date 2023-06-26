@@ -53,10 +53,12 @@ onValue(endorsementsDB, (snapshot) => {
 
 function appendListItemToHtml(endorsements) {
     let listEl = document.createElement('li')
+    let likedClass = ""
 
     let endorsementId = endorsements[0]
     let endorsementObj = endorsements[1]
     let exactLocationOfEndorsements = ref(database, `Endorsements/${endorsementId}`)
+    if (endorsementObj.isLiked) likedClass = "liked"
 
     listEl.addEventListener('click', (e) => {
         if (e.target.dataset.like) {
@@ -67,9 +69,9 @@ function appendListItemToHtml(endorsements) {
     })
 
         listEl.addEventListener('dblclick', (e) => {
-            !e.target.dataset.like ? remove(exactLocationOfEndorsements) : null;
+            if (!e.target.dataset.like) remove(exactLocationOfEndorsements)
     })
-    
+
     const {endorsementText, endorsementFrom, endorsementTo, endorsementLikes} = endorsementObj
     listEl.innerHTML = `
         <div class="endorsement-details">
@@ -77,7 +79,7 @@ function appendListItemToHtml(endorsements) {
             <p class="endorsement-text">${endorsementText}</p>
             <h3 class="endorsement-from">${endorsementFrom}</h3>
             <span class="endorsement-likes">
-                <i class="fa-solid fa-heart" id="like-btn" data-like="${endorsementId}"></i>
+                <i class="fa-solid fa-heart ${likedClass}" id="like-btn" data-like="${endorsementId}"></i>
                 <p>${endorsementLikes}</p>
             </span>
         </div>`
