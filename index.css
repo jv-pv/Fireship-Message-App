@@ -32,6 +32,7 @@ main {
     display: grid;
     grid-template: auto / repeat(2, 1fr);
     width: 100%;
+    min-width: 300px;
     max-width: 630px;
     column-gap: 10px;
 }
@@ -106,6 +107,7 @@ button {
 
 
 .endorsements-wrapper {
+    min-width: 300px;
     max-width: 630px;
 }
 
@@ -132,4 +134,46 @@ ul li {
     background-color: var(--bg-color-li);
     color: var(--text-color-dark);
 }
+
+.endorsement-details {
+    display: grid;
+    grid-template: repeat(3, 1fr)/ 1fr 1fr;
+}
+
+.endorsement-to,
+.endorsement-text,
+.endorsement-from {
+    margin: 0;
+    align-self: center;
+}
+
+.endorsement-to {
+    grid-row: 1;
+    grid-column: span 3;
+}
+
+.endorsement-text {
+    grid-row: 2;
+    grid-column: span 3;
+    padding: 0.2em 0;
+}
+
+.endorsement-from {
+    grid-row: 3;
+    grid-column: 1;
+}
+
+.endorsement-likes {
+    grid-row: 3;
+    grid-column: 2;
+    justify-self: flex-end;
+    align-self: center;
+}
+
+.endorsement-likes p {
+    display: inline;
+    font-weight: bolder;
+}
+
+
 
