@@ -1,2 +1,2 @@
 # Endorsement-App
-A vanilla JavaScript practice project using Firebase's Realtime Database. 
+A small vanilla JavaScript scoial app using Firebase's Realtime Database. 
