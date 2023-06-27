@@ -133,6 +133,7 @@ ul li {
     font-size: small;
     background-color: var(--bg-color-li);
     color: var(--text-color-dark);
+    border-radius: 5px;
 }
 
 .endorsement-details {
