@@ -1,30 +1,35 @@
 <!doctype html>
 <html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
-        <title>We are the Champions</title>
-    </head>
-    <body>
-        <main>
-            <div class="input-wrapper">
 
-                <img src="./Assets/freddie.png" alt="freddie mercury graphic" width="90px">
-                <h1>We are the Champions</h1>
-                <textarea name="endorsements" id="input-field" cols="30" rows="4" placeholder="Your Endorsements Here"></textarea>
-                <input type="text" placeholder="From" class="input-from">
-                <input type="text" placeholder="To" class="input-to">
-                <button id="publish-button">Publish</button>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>We are the Champions</title>
+</head>
 
-            </div>
-            <div class="endorsements-wrapper">
+<body>
+    <main>
+        <div class="input-wrapper">
 
-                <h2>- Endorsements -</h2>
-                <ul id="endorsements-list">
-                    <li> 
-                        <!-- <div class="endorsement-details">
+            <img src="./Assets/freddie.png" alt="freddie mercury graphic" width="90px">
+            <h1>We are the Champions</h1>
+            <textarea name="endorsements" id="input-field" cols="30" rows="4" placeholder="Your Endorsements Here"
+                required></textarea>
+            <input type="text" placeholder="From" class="input-from" required>
+            <input type="text" placeholder="To" class="input-to" required>
+            <button id="publish-button">Publish</button>
+
+        </div>
+        <div class="endorsements-wrapper">
+
+            <h2>- Endorsements -</h2>
+            <ul id="endorsements-list">
+                <li>
+                    <!-- <div class="endorsement-details">
                             <h3 class="endorsement-to">To Leanne</h3>
                             <p class="endorsement-text">Hi Bob! Your React Router course is so good. The students are going to LOVE IT. I’m so excited for the launch :) 🔥 Per</p>
                             <h3 class="endorsement-from">From Frodo</h3>
@@ -33,16 +38,17 @@
                                 <p>1</p>
                             </span>
                         </div> -->
-                    </li>
+                </li>
 
-                    <!-- <li>Abdellah! That transcription feature you completed for Scrimba 3.0 is amazing. I know you’ve been working hard on it for several months now. 👏👏👏 Really good work 🙌
+                <!-- <li>Abdellah! That transcription feature you completed for Scrimba 3.0 is amazing. I know you’ve been working hard on it for several months now. 👏👏👏 Really good work 🙌
                         From Sindre</li>
                     <li>Leanne! Thank you so much for helping me with the March accounting. Saved so much time because of you! 💜 Frode </li> -->
-                </ul>
+            </ul>
 
-            </div>
+        </div>
 
-        </main>
-        <script src="index.js" type="module"></script>
-    </body>
+    </main>
+    <script src="index.js" type="module"></script>
+</body>
+
 </html>
